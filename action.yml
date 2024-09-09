@@ -1,0 +1,28 @@
+name: "Markdown to JSON Converter"
+description: "A GitHub Action to convert a Markdown changelog file to a JSON file."
+author: "Alok Vishwakarma alokbishukarma@gmail.com"
+inputs:
+  markdown_file:
+    description: "The path to the Markdown file to convert"
+    required: true
+    default: "changelog.md"
+  output_file:
+    description: "The path where the JSON output should be saved"
+    required: false
+    default: "changelog.json"
+
+runs:
+  using: "composite"
+  steps:
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: "3.x" # Specify your desired Python version
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install markdown
+
+    - name: Run the conversion script
+      run: python changelog_parser.py ${{ inputs.markdown_file }} ${{ inputs.output_file }}
