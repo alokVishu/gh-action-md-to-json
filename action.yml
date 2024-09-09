@@ -26,5 +26,5 @@ runs:
       shell: bash
 
     - name: Run the conversion script
-      run: python _actions/alokVishu/gh-action-md-to-json/main/changelog_parser.py ${{ inputs.markdown_file }} ${{ inputs.output_file }}
+      run: python $GITHUB_ACTION_PATH/changelog_parser.py ${{ inputs.markdown_file }} ${{ inputs.output_file }}
       shell: bash
