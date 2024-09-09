@@ -32,13 +32,13 @@ for i in range(0, len(versions), 3):
         changes = re.findall(change_pattern, changes_content)
         log_entries.append({
             'type': log_type,
-            'change': changes
+            'changes': changes
         })
 
     changelog.append({
         'version': version,
         'date': date,
-        'log': log_entries
+        'logs': log_entries
     })
 
 # Convert to JSON
