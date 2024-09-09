@@ -4,7 +4,7 @@ import os
 import sys
 
 # Get input file paths from environment variables or default values
-markdown_file_path = sys.argv[1] if len(sys.argv) > 1 else 'changelog.md'
+markdown_file_path = sys.argv[1] if len(sys.argv) > 1 else 'CHANGELOG.md'
 output_file_path = sys.argv[2] if len(sys.argv) > 2 else 'changelog.json'
 
 # Open the Markdown file and read its content
